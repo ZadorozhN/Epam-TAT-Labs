@@ -195,6 +195,63 @@ public class App
             }
         }
 
+        System.out.println("Number which has the minimal number of digits is " + numb);
+
+        //Fifth task
+
+        int counter = 0;
+        int counterOfEvenAndOdd = 0;
+        for(int i = 0; i < listOfNumbers.size(); i++){
+            int counterOfOdd = 0;
+            char[] digits = listOfNumbers.get(i).toString().toCharArray();
+            for(int j = 0; j < digits.length; j++){
+                if((digits[j] - '0') % 2 == 0){
+                    if(j == digits.length - 1 && counterOfOdd == 0){
+                        counter++;
+                    }
+                }
+                else counterOfOdd++;
+            }
+            if(digits.length % 2 != 1 && counterOfOdd == digits.length / 2)
+                counterOfEvenAndOdd++;
+
+        }
+
+        System.out.println("Number of numbers which contain only even digits is " + counter);
+        System.out.println("Number of numbers which contain equal number of odd and even " + counterOfEvenAndOdd);
+
+        //Sixth task
+
+        int orderedNumber = -1;
+        for(int i = 0; i < listOfNumbers.size(); i++){
+            char[] digits = listOfNumbers.get(i).toString().toCharArray();
+            for(int j = 0; j < digits.length - 1; j++) {
+                if(digits[j] - '0' <= digits[j+1] - '0'){
+                    if(j == digits.length - 2) {
+                        orderedNumber = listOfNumbers.get(i);
+                    }
+                }
+                else break;
+            }
+            if(orderedNumber != -1){
+                break;
+            }
+        }
+
+        System.out.println("Number which has ordered digits is " + orderedNumber);
+
+        //Seventh task
+
+        int numbWithDifDigits = 0;
+        for(int i = 0; i < listOfNumbers.size(); i++){
+            if(listOfNumbers.get(i).toString().chars().count() == listOfNumbers.get(i).toString().chars().distinct().count()){
+                numbWithDifDigits = listOfNumbers.get(i);
+                break;
+            }
+        }
+
+        System.out.println("The number with all different digits is " + numbWithDifDigits);
+
     }
 
     public interface BoolComparator<T>{
