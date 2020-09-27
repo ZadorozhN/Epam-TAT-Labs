@@ -51,7 +51,7 @@ public class App
 
         //Fourth task
 
-        System.out.println("\nEnter the number sequence and enter the 0 when you want to stop");
+        System.out.println("\nEnter the sequence of number and enter 0 when you want to stop");
         int buf = 0;
         int sum = 0;
         int composition = 1;
@@ -144,8 +144,8 @@ public class App
             }
         }
 
-        System.out.println("The most biggest number is " + max + " and its length is " + Integer.toString(max).length());
-        System.out.println("The most smallest number is " + min + " and its length is " + Integer.toString(min).length());
+        System.out.println("The biggest number is " + max + " and its length is " + Integer.toString(max).length());
+        System.out.println("The smallest number is " + min + " and its length is " + Integer.toString(min).length());
 
         //Second task
 
