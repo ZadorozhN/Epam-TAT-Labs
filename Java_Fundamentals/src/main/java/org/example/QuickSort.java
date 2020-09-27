@@ -24,4 +24,28 @@ public class QuickSort{
             if (count > low) quickSort(arr, low, count - 1, comparer);
         }
     }
+
+    public static void quickSortColumn(int[][] arr, int column, int low, int high, App.BoolComparator<Integer> comparer) {
+        int mainNode = arr[high][column];
+        int count = low;
+
+        if (low < high) {
+            for (int i = low; i < high; i++) {
+                if (comparer.compare(mainNode,arr[i][column])) {
+                    int buf = arr[i][column];
+                    arr[i][column] = arr[count][column];
+                    arr[count][column] = buf;
+                    count++;
+                }
+            }
+
+            int buf = arr[count][column];
+            arr[count][column] = mainNode;
+            arr[high][column] = buf;
+
+            if (count < high) quickSortColumn(arr, column, count + 1, high, comparer);
+            if (count > low) quickSortColumn(arr, column, low, count - 1, comparer);
+        }
+    }
+
 }

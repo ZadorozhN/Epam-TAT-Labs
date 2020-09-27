@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 public class App 
 {
     public static void main( String[] args ) {
+
+        secondOptionalTask();
         firstOptionalTask();
 
         //First task
@@ -252,6 +254,165 @@ public class App
 
         System.out.println("The number with all different digits is " + numbWithDifDigits);
 
+    }
+
+    public static void secondOptionalTask(){
+        Scanner scan = new Scanner(System.in);
+        int n;
+        System.out.println("Enter the array dimension");
+
+        while(!scan.hasNext()){
+            System.out.println("This is not a number try again");
+            scan.next();
+        }
+
+        n = scan.nextInt();
+        int[][] arr = new int[n][n];
+        Random rand = new Random();
+
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr.length; j++){
+                arr[i][j] = rand.nextInt() % 100;
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        //First task;
+
+        System.out.println("Enter the index of row");
+
+        int indexOfRow;
+
+        while(!scan.hasNext()){
+            System.out.println("This is not a number try again");
+            scan.next();
+        }
+
+        indexOfRow = scan.nextInt();
+
+        QuickSort.quickSort(arr[indexOfRow],0, arr[indexOfRow].length - 1,new BoolComparator<Integer>(){
+
+            @Override
+            public boolean compare(Integer o1, Integer o2) {
+                if(o1 > o2)
+                    return true;
+                return false;
+            }
+        });
+
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr.length; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Enter the index of column");
+
+        int indexOfCol;
+
+        while(!scan.hasNext()){
+            System.out.println("This is not a number try again");
+            scan.next();
+        }
+
+        indexOfCol = scan.nextInt();
+
+        QuickSort.quickSortColumn(arr, indexOfCol,0, arr.length - 1,new BoolComparator<Integer>(){
+
+            @Override
+            public boolean compare(Integer o1, Integer o2) {
+                if(o1 > o2)
+                    return true;
+                return false;
+            }
+        });
+
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr.length; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        //Second task
+        int indexMin=0;
+        int indexMax=0;
+        int row = 0;
+        for(int i = 0; i < arr.length; i++){
+            int localStartInd = 0;
+            int localEndInd = 0;
+            for(int j = 0; j < arr.length - 1; j++){
+                if(arr[i][j] <= arr[i][j+1]){
+                    localEndInd++;
+                    if(localEndInd - localStartInd > indexMax - indexMin){
+                        indexMax = localEndInd;
+                        indexMin = localStartInd;
+                        row = i;
+                    }
+                }
+                else{
+                    localStartInd = j+1;
+                    localEndInd = j+1;
+                }
+            }
+        }
+
+        System.out.println("The longest sequence of numbers is ");
+
+        for(int i = indexMin; i <= indexMax; i++){
+            System.out.print(arr[row][i] + " ");
+        }
+
+        System.out.println();
+
+        //Third task
+
+        for(int i = 0; i < arr.length; i++){
+            int buf = 0;
+            boolean isFit = false;
+            for(int j = 0; j < arr.length; j++){
+                if(arr[i][j] > 0){
+                    isFit = !isFit;
+                    if(!isFit) break;
+                }
+                if(isFit)
+                    buf += arr[i][j];
+            }
+            System.out.println(i + " row has the sum of elements which are located between first and second positive elements of array is " + buf);
+        }
+
+        //Fourth task
+
+        int indexOfColumnMaxEl = 0;
+        int indexOfRowMaxEl = 0;
+
+        for(int i = 0; i < arr.length; i++){
+            for(int j = 0; j < arr.length; j++){
+                if(arr[i][j] > arr[indexOfRowMaxEl][indexOfColumnMaxEl]){
+                    indexOfRowMaxEl = i;
+                    indexOfColumnMaxEl = j;
+                }
+            }
+        }
+
+        int[][] reducedArr = new int[n-1][n-1];
+
+        for(int i = 0, i2 = 0; i < arr.length; i++, i2++){
+            if(i == indexOfRowMaxEl) i ++;
+            for(int j = 0, j2 = 0; j < arr.length; j++, j2++){
+                if(j == indexOfColumnMaxEl) j++;
+                reducedArr[i2][j2] = arr[i][j];
+            }
+        }
+
+        for(int i = 0; i < reducedArr.length; i++){
+            for(int j = 0; j < reducedArr.length; j++){
+                System.out.print(reducedArr[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     public interface BoolComparator<T>{
