@@ -11,4 +11,7 @@
 /Java_IO/.idea
 /Java_IO/out
 /Java_IO/Java_IO.iml
+/**/.idea
+/**/out
+/**/*.iml
 
