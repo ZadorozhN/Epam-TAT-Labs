@@ -1,0 +1,115 @@
+import container.AudioDisk;
+import music.Audio;
+import music.Metal;
+import music.Rock;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+
+        Audio audio = new Audio(200, "Recorded telephone talking");
+        Metal masterOfPuppets = new Metal(400, "Master of puppets", "Metallica");
+        Metal forWhomTheBellTools = new Metal(300, "For whom the bell tools", "Metallica");
+        Metal rainingBlood = new Metal(300, "Raining blood", "Slayer");
+        Rock tnt = new Rock(250, "T.N.T", "AC/DC");
+        Rock bigGun = new Rock(250, "Big Gun", "AC/DC");
+
+        AudioDisk audioDisk = new AudioDisk() {
+            {
+                add(audio);
+                add(masterOfPuppets);
+                add(forWhomTheBellTools);
+                add(rainingBlood);
+                add(tnt);
+                add(bigGun);
+            }
+        };
+
+        int choice = 0;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.println("0 - Exit");
+            System.out.println("1 - Play");
+            System.out.println("2 - Shuffle");
+            System.out.println("3 - Total duration");
+            System.out.println("4 - Audio by duration");
+            System.out.println("5 - Add audio");
+            System.out.println("6 - Add metal");
+            System.out.println("7 - Add rock");
+            System.out.println("8 - Selected genre to start");
+            System.out.println("9 - Clear playlist");
+
+            while(!scanner.hasNextInt()){
+                scanner.next();
+            }
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 0:
+                    System.out.println("Exiting");
+                    break;
+                case 1:
+                    audioDisk.play();
+                    break;
+                case 2:
+                    audioDisk.shuffle();
+                    break;
+                case 3:
+                    System.out.println(audioDisk.totalDuration() / 60 + " m. " + audioDisk.totalDuration() % 60 + " s.3");
+                    break;
+                case 4:
+                    System.out.println("Enter the duration through enter");
+                    try {
+                        audioDisk.getAudioByDuration(scanner.nextInt(), scanner.nextInt()).play();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 5:
+                    System.out.println("Enter the duration and after the name of audio through enter");
+                    try {
+                        audioDisk.add(new Audio(scanner.nextInt(), scanner.next()));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 6:
+                    System.out.println("Enter the duration and after the name of audio with the name of band through enter");
+                    try {
+                        audioDisk.add(new Metal(scanner.nextInt(), scanner.next(), scanner.next()));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 7:
+                    System.out.println("Enter the duration and after the name of audio with the name of band through enter");
+                    try {
+                        audioDisk.add(new Rock(scanner.nextInt(), scanner.next(), scanner.next()));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 8:
+                    System.out.println("Enter a genre");
+                    switch (scanner.next()) {
+                        case "Audio": audioDisk.musicOfGenreToStart(Audio.class); break;
+                        case "Metal": audioDisk.musicOfGenreToStart(Metal.class); break;
+                        case "Rock": audioDisk.musicOfGenreToStart(Rock.class); break;
+                        default:
+                            System.out.println("Incorrect genre");
+                    }
+                    break;
+                case 9:
+                    audioDisk.clear();
+                    break;
+                default:
+                    System.out.println("Incorrect choice");
+                    break;
+            }
+
+
+        } while (choice != 0);
+    }
+}
