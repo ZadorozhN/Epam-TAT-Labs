@@ -3,11 +3,16 @@ import music.Audio;
 import music.Metal;
 import music.Rock;
 
+import java.io.*;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class App {
     public static void main(String[] args) {
+
+        optionalTask();
 
         Audio audio = new Audio(200, "Recorded telephone talking");
         Metal masterOfPuppets = new Metal(400, "Master of puppets", "Metallica");
@@ -111,5 +116,90 @@ public class App {
 
 
         } while (choice != 0);
+    }
+
+    public static void optionalTask(){
+        //Seventh task
+        Stack<Character> stack = new Stack<>();
+        String str = "(({{[][]()}}{}))";
+        for(char c : str.toCharArray()){
+            if (c == '(' || c == '[' || c == '{')
+                stack.push(c);
+            if (c == ')' || c == ']' || c == '}') {
+                if (stack.isEmpty()) {
+                    System.out.println("there are more end brackets than start brackets");
+                    return;
+                }
+                if (stack.peek() == '(' && c != ')' || stack.peek() == '[' && c != ']' || stack.peek() == '{' && c != '}') {
+                    System.out.println("There is wrong! Next bracket must be as " + stack.pop() + " but we got this one " + c);
+                    return;
+                } else stack.pop();
+            }
+        }
+        if (!stack.isEmpty()) {
+            System.out.println("there are more start brackets than end brackets");
+            return;
+        }
+
+        System.out.println();
+
+        //Second task
+        Stack<Integer> digits = new Stack<>();
+        int number;
+        int divider = 10;
+        boolean key = false;
+
+        System.out.println("Enter the number, which we will break into digits");
+        Scanner scanner = new Scanner(System.in);
+        while(!scanner.hasNextInt()){
+            scanner.next();
+        }
+        number = scanner.nextInt();
+
+
+        while(divider > 0) {
+            if(number / divider > 9 && !key)
+                divider *= 10;
+            else {
+                key = true;
+                digits.add(number / divider % 10);
+                divider /= 10;
+            }
+        }
+
+        while(!digits.empty()){
+            System.out.print(digits.pop());
+        }
+
+        System.out.println();
+
+        //Eighth task
+        HashSet<String> words = new HashSet();
+
+        try(FileInputStream fis = new FileInputStream("D:/Desktop/EngText.txt")){
+            StringBuilder word = new StringBuilder();
+            int c;
+            while((c = fis.read()) != -1){
+                if(c == '\r') continue;
+                if(c == ' ' || c == '\t' || c == '\n'){
+                    words.add(word.toString());
+                    word.delete(0, word.length());
+                    continue;
+                }
+                word.append((char)c);
+
+            }
+
+            for(var w : words){
+                System.out.println(w);
+            }
+
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
