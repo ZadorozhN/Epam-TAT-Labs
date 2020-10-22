@@ -2,6 +2,7 @@ package exceptions;
 
 public class NoDisciplinesException extends Exception {
     private String message;
+
     public NoDisciplinesException(String message){
         super(message);
         this.message = message;

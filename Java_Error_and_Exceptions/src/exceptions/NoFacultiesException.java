@@ -2,6 +2,7 @@ package exceptions;
 
 public class NoFacultiesException extends Exception{
     private String message;
+
     public NoFacultiesException(String message){
         super(message);
         this.message = message;

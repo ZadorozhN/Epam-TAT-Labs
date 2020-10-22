@@ -16,6 +16,5 @@ public class QuickSort {
 
         if(j < high) sort(arr, j + 1, high, comparator);
         if(j > low) sort(arr, low, j - 1, comparator);
-
     }
 }

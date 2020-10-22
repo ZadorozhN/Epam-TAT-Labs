@@ -121,7 +121,6 @@ public class App {
 
         System.out.println("The average grade of students which study in group with id " + group.getId() + " is " + averageGrade);
 
-
         //Third task
         averageGrade = 0;
         countOfGrades = 0;
@@ -140,6 +139,5 @@ public class App {
             System.out.println(e.getMessage());
         }
         System.out.println("The average grade in math at university is " + averageGrade);
-
     }
 }

@@ -2,6 +2,7 @@ package exceptions;
 
 public class NoGroupsException extends Exception {
     private String message;
+
     public NoGroupsException(String message){
         super(message);
         this.message = message;
