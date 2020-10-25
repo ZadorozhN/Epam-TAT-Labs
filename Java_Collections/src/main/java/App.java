@@ -4,10 +4,8 @@ import music.Metal;
 import music.Rock;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class App {
     public static void main(String[] args) {
@@ -190,7 +188,7 @@ public class App {
 
             }
 
-            for(var w : words){
+            for(String w : words){
                 System.out.println(w);
             }
 
@@ -200,6 +198,5 @@ public class App {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
     }
 }

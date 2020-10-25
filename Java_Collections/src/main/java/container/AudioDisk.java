@@ -13,6 +13,10 @@ public class AudioDisk {
         audios = new ArrayList<>();
     }
 
+    public AudioDisk(ArrayList<Audio> audios){
+        this.audios = audios;
+    }
+
     public void add(Audio audio){
         audios.add(audio);
     }
@@ -49,7 +53,7 @@ public class AudioDisk {
         int j = 0;
         Audio buf;
         for(int i = 0; i < audios.size(); i++){
-            if(audios.get(i).getClass().getName().equals(cl.getName())){
+            if(audios.get(i).getClass().equals(cl)){
                 buf = audios.get(i);
                 audios.set(i, audios.get(j));
                 audios.set(j, buf);
@@ -70,5 +74,21 @@ public class AudioDisk {
         for( int i = 0; i < audios.size(); i++){
             audios.get(i).play();
         }
+    }
+
+    public Audio getAudio(String name){
+        for( int i = 0; i < audios.size(); i++){
+            if(audios.get(i).getName() == name)
+                return audios.get(i);
+        }
+        return null;
+    }
+
+    public ArrayList<Audio> getAudios(){
+        return audios;
+    }
+
+    public int numberOfAudios(){
+        return audios.size();
     }
 }

@@ -1,13 +1,11 @@
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class JavaClassesTests {
-
     @Test
     void trueTest(){
         assertTrue(true);
@@ -85,7 +83,7 @@ public class JavaClassesTests {
 
         CustomerRepository repository = new CustomerRepository(customers);
         repository.removeById(deletedCustomer.getId());
-        assertTrue(repository.getById(deletedCustomer.getId()) == null);
+        assertEquals(repository.getById(deletedCustomer.getId()), null);
     }
 
     @Test
@@ -100,7 +98,7 @@ public class JavaClassesTests {
 
         CustomerRepository repository = new CustomerRepository(customers);
         repository.removeCustomer(deletedCustomer);
-        assertTrue(repository.getById(deletedCustomer.getId()) == null);
+        assertEquals(repository.getById(deletedCustomer.getId()), null);
     }
 
     @Test
@@ -115,6 +113,49 @@ public class JavaClassesTests {
 
         CustomerRepository repository = new CustomerRepository(customers);
         repository.addCustomer(addedCustomer);
-        assertTrue(repository.getById(addedCustomer.getId()) == addedCustomer);
+        assertEquals(repository.getById(addedCustomer.getId()), addedCustomer);
+    }
+
+    @Test
+    void randomFillingTest(){
+        int numberOfCustomers = 10;
+        CustomerRepository repository = new CustomerRepository();
+        repository.randomFilling(numberOfCustomers);
+        assertEquals(repository.size(), numberOfCustomers);
+    }
+
+    @Test
+    void getCustomerNameTest(){
+        String name = "John";
+        Customer customer = new Customer(1, "Sweet", name, "John's patronymic", "Wall street", 1, 1);
+        assertEquals(customer.getName(), name);
+    }
+
+    @Test
+    void getCustomerLastNameTest(){
+        String lastName = "Sweet";
+        Customer customer = new Customer(1, lastName, "John", "John's patronymic", "Wall street", 1, 1);
+        assertEquals(customer.getLastName(), lastName);
+    }
+
+    @Test
+    void getCustomerIdTest(){
+        int id = 777;
+        Customer customer = new Customer(id, "Sweet", "John", "John's patronymic", "Wall street", 1, 1);
+        assertEquals(customer.getId(), id);
+    }
+
+    @Test
+    void getCustomerCardIdTest(){
+        int cardId = 567;
+        Customer customer = new Customer(1, "Sweet", "John", "John's patronymic", "Wall street", cardId, 1);
+        assertEquals(customer.getCardId(), cardId);
+    }
+
+    @Test
+    void getCustomerBankAccountIdTest(){
+        int bankAccountId = 321;
+        Customer customer = new Customer(1, "Sweet", "John", "John's patronymic", "Wall street", 1, bankAccountId);
+        assertEquals(customer.getBankAccountId(), bankAccountId);
     }
 }

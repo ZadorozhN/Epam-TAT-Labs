@@ -89,4 +89,8 @@ public class CustomerRepository {
             }
         });
     }
+
+    public int size(){
+        return customers.size();
+    }
 }
