@@ -1,15 +1,16 @@
-import Planes.ExperimentalPlane;
-import models.ClassificationLevel;
-import models.ExperimentalTypes;
-import models.MilitaryType;
+import plane.ExperimentalPlane;
+import model.ClassificationLevel;
+import model.ExperimentalTypes;
+import model.MilitaryType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import Planes.MilitaryPlane;
-import Planes.PassengerPlane;
-import Planes.Plane;
+import plane.MilitaryPlane;
+import plane.PassengerPlane;
+import plane.Plane;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class AirportTest {
     private static List<Plane> planes = Arrays.asList(

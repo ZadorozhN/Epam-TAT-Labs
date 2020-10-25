@@ -23,12 +23,25 @@ public class CustomerRepository {
         }
     }
 
+    public ArrayList<Customer> getAllCustomers(){
+        return customers;
+    }
+
     public void addCustomer(Customer customer){
         customers.add(customer);
     }
 
     public void removeCustomer(Customer customer){
         customers.remove(customer);
+    }
+
+    public Customer getById(int id){
+        for(int i = 0; i < customers.size(); i++){
+            if(customers.get(i).getId() == id){
+                return customers.get(i);
+            }
+        }
+        return null;
     }
 
     public void removeById(int id){

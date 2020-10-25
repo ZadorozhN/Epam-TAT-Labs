@@ -1,6 +1,6 @@
-package Planes;
+package plane;
 
-import models.MilitaryType;
+import model.MilitaryType;
 
 import java.util.Objects;
 
@@ -17,17 +17,7 @@ public class MilitaryPlane extends Plane{
     }
 
     @Override
-    public String toString() {
-        return super.toString().replace("}",
-                ", type=" + type +
-                '}');
-    }
-
-    @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
         if (!(o instanceof MilitaryPlane)) {
             return false;
         }

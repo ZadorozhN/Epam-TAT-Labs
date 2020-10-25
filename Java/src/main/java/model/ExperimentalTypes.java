@@ -1,4 +1,4 @@
-package models;
+package model;
 
 public enum ExperimentalTypes {
     LIFTING_BODY,
