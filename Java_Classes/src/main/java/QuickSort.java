@@ -1,5 +1,5 @@
 public class QuickSort {
-    static public void Sort(int[] arr, int low, int high){
+    static public void sort(int[] arr, int low, int high){
         int pivot = arr[high];
         int j = low;
 
@@ -17,8 +17,8 @@ public class QuickSort {
             arr[j] = pivot;
             arr[high] = buf;
 
-            if(j < high) Sort(arr, j+1, high);
-            if(j > low) Sort(arr, low, j-1);
+            if(j < high) sort(arr, j+1, high);
+            if(j > low) sort(arr, low, j-1);
         }
     }
 }

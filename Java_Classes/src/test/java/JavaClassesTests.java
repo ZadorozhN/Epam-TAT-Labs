@@ -1,6 +1,5 @@
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -157,5 +156,22 @@ public class JavaClassesTests {
         int bankAccountId = 321;
         Customer customer = new Customer(1, "Sweet", "John", "John's patronymic", "Wall street", 1, bankAccountId);
         assertEquals(customer.getBankAccountId(), bankAccountId);
+    }
+
+    @Test
+    void getCustomerAddressTest(){
+        String address = "Wall street";
+        Customer customer = new Customer(1, "Sweet", "John", "John's patronymic", address, 1, 1);
+        assertEquals(customer.getAddress(), address);
+    }
+
+    @Test
+    void quickSortTest(){
+        int[] array = new int[]{1, 7, 4, 2, 6, 8};
+        int[] sortedArray = new int[]{1, 2, 4, 6, 7, 8};
+
+        QuickSort.sort(array, 0, array.length - 1);
+
+        assertEquals(array, sortedArray);
     }
 }
