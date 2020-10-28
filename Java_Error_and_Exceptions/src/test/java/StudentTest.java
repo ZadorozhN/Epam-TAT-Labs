@@ -6,12 +6,33 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StudentTest {
     public static final Group LEGAL_GROUP = Mockito.mock(Group.class);
+    public static final Group ILLEGAL_GROUP = null;
     public static final int LEGAL_ID = 3;
+    public static final int ILLEGAL_ID = -3;
     public static final String LEGAL_NAME = "Nikita";
+    public static final String ILLEGAL_NAME = null;
 
     @Test
-    void createStudent(){
+    void createStudentTest(){
         assertDoesNotThrow(() -> new Student(LEGAL_NAME, LEGAL_GROUP, LEGAL_ID));
+    }
+
+    @Test
+    void createStudentWithIllegalGroupTest(){
+        assertThrows(NullPointerException.class,
+                () -> new Student(LEGAL_NAME, ILLEGAL_GROUP, LEGAL_ID));
+    }
+
+    @Test
+    void createStudentWithIllegalNameTest(){
+        assertThrows(NullPointerException.class,
+                () -> new Student(ILLEGAL_NAME, LEGAL_GROUP, LEGAL_ID));
+    }
+
+    @Test
+    void createStudentWithIllegalIdTest(){
+        assertThrows(IllegalArgumentException.class,
+                () -> new Student(LEGAL_NAME, LEGAL_GROUP, ILLEGAL_ID));
     }
 
     @Test

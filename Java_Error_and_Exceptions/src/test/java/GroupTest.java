@@ -1,11 +1,10 @@
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class GroupTest {
-    public static final String LEGAL_FACULTY_NAME = "IT";
-    public static final int LEGAL_FACULTY_ID = 3;
-    public static final Faculty LEGAL_FACULTY = new Faculty(LEGAL_FACULTY_NAME, LEGAL_FACULTY_ID);
+    public static final Faculty LEGAL_FACULTY = Mockito.mock(Faculty.class);
     public static final int LEGAL_GROUP_ID = 3;
 
     @Test
