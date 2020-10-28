@@ -1,8 +1,7 @@
 import exceptions.*;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
+import java.util.stream.Collector;
 
 public class App {
     public static void main(String[] args) {
@@ -34,7 +33,7 @@ public class App {
         Random random = new Random();
 
         for (int i = 0; i < students.length; i++) {
-            students[i].getGrades().put("Math", Math.abs(random.nextInt()) % 10);
+            students[i].putNote("Math", (Math.abs(random.nextInt())) % 10 + 1);
         }
 
         //First task
@@ -42,18 +41,14 @@ public class App {
         int countOfGrades = 0;
         int studentId = 1;
 
-        QuickSort.sort(students, 0, students.length - 1, new Comparator<Student>() {
+        Arrays.sort(students, new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
-                if (o1.getId() > o2.getId())
-                    return 1;
-                if (o1.getId() < o2.getId())
-                    return -1;
-                return 0;
+                return o1.getId() - o2.getId();
             }
         });
 
-        Student student = BinarySearch.search(students, 0, students.length - 1, studentId);
+        Student student = students[Arrays.binarySearch(Arrays.stream(students).mapToInt(x -> x.getId()).toArray(), studentId)];
 
         for (HashMap.Entry<String, Integer> entry : student.getGrades().entrySet()) {
             averageGrade += entry.getValue();
@@ -72,7 +67,7 @@ public class App {
                 return;
             }
 
-        for(var i = 0; i < students.length; i++){
+        for(int i = 0; i < students.length; i++){
             if(students[i].getGrades().entrySet().size() == 0)
                 try {
                     throw new NoDisciplinesException("Student has no disciplines");

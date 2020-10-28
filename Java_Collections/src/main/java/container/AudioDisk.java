@@ -3,6 +3,7 @@ package container;
 import music.Audio;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class AudioDisk {
@@ -85,7 +86,7 @@ public class AudioDisk {
     }
 
     public ArrayList<Audio> getAudios(){
-        return audios;
+        return new ArrayList<>(audios);
     }
 
     public int numberOfAudios(){

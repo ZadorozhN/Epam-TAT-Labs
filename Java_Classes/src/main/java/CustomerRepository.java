@@ -24,7 +24,7 @@ public class CustomerRepository {
     }
 
     public ArrayList<Customer> getAllCustomers(){
-        return customers;
+        return new ArrayList<>(customers);
     }
 
     public void addCustomer(Customer customer){

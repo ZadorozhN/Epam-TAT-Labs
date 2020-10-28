@@ -9,6 +9,7 @@ public class JavaClassesTests {
     void trueTest(){
         assertTrue(true);
     }
+
     @Test
     void customerEqualsTest(){
         Customer firstCustomer = new Customer(6, "DaleLastName", "Dale", "DalePatronymic", "DaleAddress", 6, 6);
@@ -91,9 +92,9 @@ public class JavaClassesTests {
 
         Customer deletedCustomer = new Customer(7, "DaleLastName", "Dale", "DalePatronymic", "DaleAddress", 6, 6);
 
-        customers.add(new Customer(6, "B", "Dale", "Sweet", "DaleAddress", 1, 1));
-        customers.add(new Customer(1, "C", "Nick", "Smith", "NickAddress", 2, 2));
-        customers.add(new Customer(5, "A", "John", "JC", "JohnAddress", 3, 3));
+        customers.add(new Customer(6, "Bb", "Dale", "Sweet", "DaleAddress", 1, 1));
+        customers.add(new Customer(1, "Cc", "Nick", "Smith", "NickAddress", 2, 2));
+        customers.add(new Customer(5, "Aa", "John", "JC", "JohnAddress", 3, 3));
 
         CustomerRepository repository = new CustomerRepository(customers);
         repository.removeCustomer(deletedCustomer);
@@ -106,9 +107,9 @@ public class JavaClassesTests {
 
         Customer addedCustomer = new Customer(7, "DaleLastName", "Dale", "DalePatronymic", "DaleAddress", 6, 6);
 
-        customers.add(new Customer(6, "B", "Dale", "Sweet", "DaleAddress", 1, 1));
-        customers.add(new Customer(1, "C", "Nick", "Smith", "NickAddress", 2, 2));
-        customers.add(new Customer(5, "A", "John", "JC", "JohnAddress", 3, 3));
+        customers.add(new Customer(6, "Bb", "Dale", "Sweet", "DaleAddress", 1, 1));
+        customers.add(new Customer(1, "Cc", "Nick", "Smith", "NickAddress", 2, 2));
+        customers.add(new Customer(5, "Aa", "John", "JC", "JohnAddress", 3, 3));
 
         CustomerRepository repository = new CustomerRepository(customers);
         repository.addCustomer(addedCustomer);
@@ -172,6 +173,6 @@ public class JavaClassesTests {
 
         QuickSort.sort(array, 0, array.length - 1);
 
-        assertEquals(array, sortedArray);
+        assertArrayEquals(array, sortedArray);
     }
 }
