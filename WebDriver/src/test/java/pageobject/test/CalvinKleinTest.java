@@ -52,6 +52,6 @@ public class CalvinKleinTest {
 
     @AfterMethod
     public void closeDriver(){
-        //driver.close();
+        driver.close();
     }
 }
