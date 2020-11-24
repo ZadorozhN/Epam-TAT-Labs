@@ -1,12 +1,11 @@
-package pageobject.page;
+package pageobject.tenminutesmail;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
+import pageobject.Page;
 
 public class TenMinutesMailHomepage extends Page {
     private static final String HOMEPAGE_URL = "https://10minutemail.net/";

@@ -8,8 +8,8 @@
 //import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeTest;
 //import org.testng.annotations.Test;
-//import pageobject.page.GoogleCloudHomePage;
-//import pageobject.page.TenMinutesMailHomepage;
+//import page.GoogleCloudHomePage;
+//import page.TenMinutesMailHomepage;
 //
 //import java.io.File;
 //

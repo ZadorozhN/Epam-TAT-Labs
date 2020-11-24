@@ -1,4 +1,4 @@
-package pageobject.page;
+package pageobject.google;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,8 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobject.Page;
 
-public class GoogleCloudHomePage extends Page{
+public class GoogleCloudHomePage extends Page {
     private static final String HOMEPAGE_URL = "https://cloud.google.com/";
     private static final String CALCULATOR_REQUEST = "Google Cloud Platform Pricing Calculator";
 

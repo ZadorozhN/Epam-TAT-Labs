@@ -1,14 +1,14 @@
-package pageobject.page;
+package pageobject.google;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobject.Page;
 
-public class GoogleCloudPricingCalculator extends Page{
+public class GoogleCloudPricingCalculator extends Page {
     @FindBy(xpath = "//*[@id=\"mainForm\"]/md-tabs/md-tabs-wrapper/md-tabs-canvas/md-pagination-wrapper/md-tab-item[1]/div[1]")
     private WebElement computeEngineSwitcher;
 

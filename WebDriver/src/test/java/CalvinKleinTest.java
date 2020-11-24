@@ -1,5 +1,3 @@
-package pageobject.test;
-
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageobject.page.CalvinKleinHomePage;
+import pageobject.calvinklein.CalvinKleinHomePage;
 
 import java.io.File;
 

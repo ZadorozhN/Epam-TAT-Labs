@@ -1,4 +1,4 @@
-package pageobject.page;
+package pageobject.calvinklein;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,8 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobject.Page;
 
-public class CalvinKleinBagPage extends Page{
+public class CalvinKleinBagPage extends Page {
 
     @FindBy(xpath = "//div[contains(@class,'product_title')]/h3/*[@id=\"OrderItemDetailsf_div_2_1\"]")
     WebElement firstItem;
