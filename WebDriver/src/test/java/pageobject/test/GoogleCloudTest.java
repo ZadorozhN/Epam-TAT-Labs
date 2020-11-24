@@ -2,6 +2,7 @@ package pageobject.test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -10,8 +11,12 @@ import org.testng.annotations.Test;
 import pageobject.page.GoogleCloudHomePage;
 import pageobject.page.TenMinutesMailHomepage;
 
+import java.io.File;
+
 public class GoogleCloudTest {
     private WebDriver driver;
+    private ChromeOptions options;
+
 
     private static final String REQUEST = "Google Cloud Platform Pricing Calculator";
     private static final String ESTIMATE = "USD 5,413.06";
@@ -19,7 +24,10 @@ public class GoogleCloudTest {
     @BeforeTest
     public void init() {
         System.setProperty("webdriver.chrome.driver", "D://WebDrivers/chromedriver.exe");
+        options = new ChromeOptions();
+        options.addExtensions(new File("D://Downloads/anticaptcha-plugin_v0.50.zip"));
     }
+
 
     @BeforeMethod(alwaysRun = true)
     public void createDriver() {

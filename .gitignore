@@ -1,10 +1,5 @@
 *.db
 *.log
-/target
-/bin
-/**/.idea
-/**/out
-/**/*.iml
 /**/.idea
 /**/out
 /**/*.iml

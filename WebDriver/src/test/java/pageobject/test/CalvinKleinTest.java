@@ -1,5 +1,6 @@
 package pageobject.test;
 
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,17 +10,23 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageobject.page.CalvinKleinHomePage;
 
+import java.io.File;
+
 public class CalvinKleinTest {
     private WebDriver driver;
+    private ChromeOptions options;
 
     @BeforeTest
     public void init() {
         System.setProperty("webdriver.chrome.driver", "D://WebDrivers/chromedriver.exe");
+        options = new ChromeOptions();
+        options.addExtensions(new File("D://Downloads/anticaptcha-plugin_v0.50.zip"));
     }
 
     @BeforeMethod(alwaysRun = true)
     public void createDriver() {
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
+
     }
 
     @Test
@@ -27,7 +34,7 @@ public class CalvinKleinTest {
         String itemName = new CalvinKleinHomePage(driver)
                 .openPage()
                 .search("21899318-417")
-                .setSize("m")
+                .setSize("s")
                 .addToCart()
                 .openCart()
                 .getNameOfFirstItem();
@@ -41,7 +48,7 @@ public class CalvinKleinTest {
         String countOfItems = new CalvinKleinHomePage(driver)
                 .openPage()
                 .search("21899318-417")
-                .setSize("m")
+                .setSize("s")
                 .setCountOfItems("3")
                 .addToCart()
                 .openCart()
