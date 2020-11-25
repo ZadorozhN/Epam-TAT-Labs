@@ -2,10 +2,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageobject.google.GoogleCloudHomePage;
 import pageobject.tenminutesmail.TenMinutesMailHomepage;
 import java.io.File;
@@ -32,6 +29,7 @@ public class GoogleCloudTest {
     }
 
     @Test
+    @Ignore
     public void emailTest() throws InterruptedException {
         String email = new TenMinutesMailHomepage(driver)
                 .openPage()
@@ -66,6 +64,7 @@ public class GoogleCloudTest {
     }
 
     @Test
+    @Ignore
     public void getVirtualMachineClassSummaryTest() throws InterruptedException {
         String virtualMachineClassSummary = new GoogleCloudHomePage(driver)
                 .openPage()
@@ -88,6 +87,7 @@ public class GoogleCloudTest {
     }
 
     @Test
+    @Ignore
     public void getRegionSummaryTest() throws InterruptedException {
         String regionSummary = new GoogleCloudHomePage(driver)
                 .openPage()
@@ -110,6 +110,7 @@ public class GoogleCloudTest {
     }
 
     @Test
+    @Ignore
     public void getLocalSsdSummaryTest() throws InterruptedException {
         String localSsdSummary = new GoogleCloudHomePage(driver)
                 .openPage()
@@ -132,6 +133,7 @@ public class GoogleCloudTest {
     }
 
     @Test
+    @Ignore
     public void getInstanceTypeSummaryTest() throws InterruptedException {
         String instanceTypeSummary = new GoogleCloudHomePage(driver)
                 .openPage()
@@ -154,6 +156,7 @@ public class GoogleCloudTest {
     }
 
     @Test
+    @Ignore
     public void getCommitmentTermSummaryTest() throws InterruptedException {
         String commitmentTermSummary = new GoogleCloudHomePage(driver)
                 .openPage()
@@ -176,6 +179,7 @@ public class GoogleCloudTest {
     }
 
     @Test
+    @Ignore
     public void getEstimateSummaryTest() throws InterruptedException {
         String estimateSummary = new GoogleCloudHomePage(driver)
                 .openPage()
