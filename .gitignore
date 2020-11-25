@@ -1,7 +1,9 @@
+.idea
+/**/out
+/**/target
+/**/log
 *.db
 *.log
-/**/.idea
-/**/out
-/**/*.iml
-/**/target
 *.swp
+*.iws
+*.iml

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
 public abstract class Page {
+
     protected static final int WAIT_TIMEOUT_SECONDS = 30;
     protected WebDriver driver;
 

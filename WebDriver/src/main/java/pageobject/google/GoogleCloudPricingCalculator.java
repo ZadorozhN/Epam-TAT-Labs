@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobject.Page;
 
 public class GoogleCloudPricingCalculator extends Page {
+
     @FindBy(xpath = "//*[@id=\"mainForm\"]/md-tabs/md-tabs-wrapper/md-tabs-canvas/md-pagination-wrapper/md-tab-item[1]/div[1]")
     private WebElement computeEngineSwitcher;
 

@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobject.Page;
 
 public class TenMinutesMailHomepage extends Page {
+
     private static final String HOMEPAGE_URL = "https://10minutemail.net/";
 
     @FindBy(id = "fe_text")

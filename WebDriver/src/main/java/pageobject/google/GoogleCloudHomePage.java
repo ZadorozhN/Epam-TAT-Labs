@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobject.Page;
 
 public class GoogleCloudHomePage extends Page {
+
     private static final String HOMEPAGE_URL = "https://cloud.google.com/";
     private static final String CALCULATOR_REQUEST = "Google Cloud Platform Pricing Calculator";
 
