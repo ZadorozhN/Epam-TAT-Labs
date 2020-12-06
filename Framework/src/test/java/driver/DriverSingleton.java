@@ -26,10 +26,7 @@ public class DriverSingleton {
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();
-                    ChromeOptions options = new ChromeOptions();
-                    options.addExtensions(new File(TestDataReader.getTestData("test.chrome.anticaptcha")));
-                    driver = new ChromeDriver(options);
-
+                    driver = new ChromeDriver();
             }
             driver.manage().window().maximize();
         }

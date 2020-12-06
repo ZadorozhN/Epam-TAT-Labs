@@ -14,7 +14,6 @@ import static util.Resolver.resolveDiscount;
 public class CalvinKleinCartTest extends CommonConditions {
 
     @Test
-    @Ignore
     public void addToCartTest(){
         Item expectedItem = ItemCreator.withCredentialsFromProperty("first");
         String uri = ItemCreator.getUri("first");
@@ -31,7 +30,6 @@ public class CalvinKleinCartTest extends CommonConditions {
     }
 
     @Test
-    @Ignore
     public void addManyItemsToCartTest(){
         Item expectedItem = ItemCreator.withCredentialsFromProperty("first");
         expectedItem.changeAmount(3);
@@ -80,7 +78,6 @@ public class CalvinKleinCartTest extends CommonConditions {
     }
 
     @Test
-    @Ignore
     public void removeItemFromCartTest() {
         Item expectedItem = ItemCreator.withCredentialsFromProperty("first");
         String uri = ItemCreator.getUri("first");
@@ -99,7 +96,6 @@ public class CalvinKleinCartTest extends CommonConditions {
     }
 
     @Test
-    @Ignore
     public void changeItemCountTest() {
         Item expectedItem = ItemCreator.withCredentialsFromProperty("first");
         String uri = ItemCreator.getUri("first");
@@ -146,7 +142,6 @@ public class CalvinKleinCartTest extends CommonConditions {
     }
 
     @Test
-    @Ignore
     public void addPromoCodeTest(){
         Item expectedItem = ItemCreator.withCredentialsFromProperty("promoitem");
         String uri = ItemCreator.getUri("promoitem");
