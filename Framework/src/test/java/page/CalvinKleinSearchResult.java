@@ -39,7 +39,7 @@ public class CalvinKleinSearchResult extends AbstractPage {
     }
 
     public CalvinKleinSearchResult setSize(String size){
-        waitUntilElementIsClickable(By.id(resolveTemplate(SIZE_TEMPLATE,size))).click();
+        waitUntilElementIsClickableAndClickAvoidModalWindow(By.id(resolveTemplate(SIZE_TEMPLATE,size)));
 
         return this;
     }

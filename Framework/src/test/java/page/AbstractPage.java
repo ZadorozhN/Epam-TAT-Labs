@@ -1,9 +1,6 @@
 package page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -48,10 +45,36 @@ public abstract class AbstractPage {
                 .until(ExpectedConditions.elementToBeClickable(location));
     }
 
+    public void waitUntilElementIsClickableAndClickAvoidModalWindow(By location){
+        try {
+            new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
+                    .pollingEvery(Duration.ofSeconds(2))
+                    .until(ExpectedConditions.elementToBeClickable(location)).click();
+        } catch (ElementClickInterceptedException exception){
+            driver.navigate().refresh();
+            new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
+                    .pollingEvery(Duration.ofSeconds(2))
+                    .until(ExpectedConditions.elementToBeClickable(location)).click();
+        }
+    }
+
     public WebElement waitUntilElementIsClickable(WebElement element){
         return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .pollingEvery(Duration.ofSeconds(2))
                 .until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public void waitUntilElementIsClickableAndClickAvoidModalWindow(WebElement element){
+        try {
+            new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
+                    .pollingEvery(Duration.ofSeconds(2))
+                    .until(ExpectedConditions.elementToBeClickable(element)).click();
+        } catch (ElementClickInterceptedException exception){
+            driver.navigate().refresh();
+            new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
+                    .pollingEvery(Duration.ofSeconds(2))
+                    .until(ExpectedConditions.elementToBeClickable(element)).click();
+        }
     }
 
     public void waitUntilFieldIsChanged(WebElement element, String startValue){
