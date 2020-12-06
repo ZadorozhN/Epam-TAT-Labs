@@ -1,14 +1,9 @@
 package driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import service.TestDataReader;
-
-import java.io.File;
 
 public class DriverSingleton {
     private static WebDriver driver;
@@ -32,6 +27,10 @@ public class DriverSingleton {
         }
 
         return driver;
+    }
+
+    public static void deleteAllCookies(){
+        driver.manage().deleteAllCookies();
     }
 
     public static void closeDriver(){

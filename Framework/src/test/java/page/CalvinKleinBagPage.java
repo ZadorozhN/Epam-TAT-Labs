@@ -7,9 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import util.Resolver;
 
 import java.util.List;
@@ -62,7 +60,7 @@ public class CalvinKleinBagPage extends AbstractPage {
     }
 
     public CalvinKleinSearchResult search(String request){
-        searchButton.click();
+        waitUntilElementIsClickableAndClickAvoidModalWindow(searchButton);
         waitUntilVisibilityOf(searchField).sendKeys(request);
         searchField.sendKeys(Keys.ENTER);
 

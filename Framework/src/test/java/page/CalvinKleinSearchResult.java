@@ -45,20 +45,20 @@ public class CalvinKleinSearchResult extends AbstractPage {
     }
 
     public CalvinKleinSearchResult addToCart() {
-        waitUntilElementIsClickable(addToCartButton).click();
+        waitUntilElementIsClickableAndClickAvoidModalWindow(addToCartButton);
 
         return this;
     }
 
     public CalvinKleinSearchResult setCountOfItems(String count) {
-        waitUntilElementIsClickable(selectQuantity).click();
+        waitUntilElementIsClickableAndClickAvoidModalWindow(selectQuantity);
         waitUntilElementIsClickable(By.cssSelector(resolveTemplate(COUNT_TEMPLATE, count))).click();
 
         return this;
     }
 
     public CalvinKleinSearchResult setCountOfItems(int count) {
-        waitUntilElementIsClickable(selectQuantity).click();
+        waitUntilElementIsClickableAndClickAvoidModalWindow(selectQuantity);
         waitUntilElementIsClickable(By.cssSelector(resolveTemplate(COUNT_TEMPLATE, Integer.toString(count)))).click();
 
         return this;
@@ -66,13 +66,13 @@ public class CalvinKleinSearchResult extends AbstractPage {
 
     public CalvinKleinBagPage openCart(){
         waitUntilAjaxCompleted();
-        waitUntilElementIsClickable(openBagButton).click();
+        waitUntilElementIsClickableAndClickAvoidModalWindow(openBagButton);
 
         return new CalvinKleinBagPage(driver);
     }
 
     public CalvinKleinSearchResult search(String request){
-        searchButton.click();
+        waitUntilElementIsClickableAndClickAvoidModalWindow(searchButton);
         waitUntilVisibilityOf(searchField).sendKeys(request);
         searchField.sendKeys(Keys.ENTER);
 

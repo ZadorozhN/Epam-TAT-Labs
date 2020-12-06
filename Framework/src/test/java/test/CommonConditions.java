@@ -9,13 +9,18 @@ import util.TestListener;
 public class CommonConditions {
     protected WebDriver driver;
 
-    @BeforeMethod
+    @BeforeSuite
     public void init(){
         driver = DriverSingleton.getInstance();
     }
 
     @AfterMethod(alwaysRun = true)
     public void close(){
+        DriverSingleton.deleteAllCookies();
+    }
+
+    @AfterSuite(alwaysRun = true)
+    public void dispose(){
         DriverSingleton.closeDriver();
     }
 }

@@ -78,13 +78,13 @@ public class CalvinKleinOrderPage extends AbstractPage{
     }
 
     public CalvinKleinOrderPage saveAndContinue(){
-        waitUntilElementIsClickable(saveAndContinueButton).click();
+        waitUntilElementIsClickableAndClickAvoidModalWindow(saveAndContinueButton);
 
         return this;
     }
 
     public CalvinKleinOrderPage continueToPayment(){
-        waitUntilElementIsClickable(continueToPaymentButton).click();
+        waitUntilElementIsClickableAndClickAvoidModalWindow(continueToPaymentButton);
 
         return this;
     }

@@ -18,15 +18,6 @@ public abstract class AbstractPage {
         this.driver = driver;
     }
 
-    protected static ExpectedCondition<Boolean> jQueryAJAXCompleted(){
-        return new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver){
-                return (Boolean) ((JavascriptExecutor)
-                        driver).executeScript("return (window.jQuery != null) && (jQuery.active == 0);");
-            }
-        };
-    }
-
     public WebElement waitUntilPresenceOfElement(By location){
         return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .pollingEvery(Duration.ofSeconds(2))
@@ -89,4 +80,12 @@ public abstract class AbstractPage {
                 .until(jQueryAJAXCompleted());
     }
 
+    protected static ExpectedCondition<Boolean> jQueryAJAXCompleted(){
+        return new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver){
+                return (Boolean) ((JavascriptExecutor)
+                        driver).executeScript("return (window.jQuery != null) && (jQuery.active == 0);");
+            }
+        };
+    }
 }
