@@ -1,3 +1,6 @@
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.openqa.selenium.WebDriver;
@@ -15,17 +18,21 @@ public class CalvinKleinTest {
     private WebDriver driver;
     private ChromeOptions options;
 
-    @BeforeTest
+    @BeforeAll
     public void init() {
         System.setProperty("webdriver.chrome.driver", "D://WebDrivers/chromedriver.exe");
         options = new ChromeOptions();
         options.addExtensions(new File("D://Downloads/anticaptcha-plugin_v0.50.zip"));
     }
 
+    @BeforeEach
+    public void clearCookies(){
+        //clear cookies
+    }
+
     @BeforeMethod(alwaysRun = true)
     public void createDriver() {
         driver = new ChromeDriver(options);
-
     }
 
     @Test
@@ -37,7 +44,6 @@ public class CalvinKleinTest {
                 .addToCart()
                 .openCart()
                 .getNameOfFirstItem();
-        System.out.println(itemName);
 
         Assert.assertEquals(itemName, "Monogram Logo Crewneck T-Shirt");
     }
@@ -56,7 +62,7 @@ public class CalvinKleinTest {
         Assert.assertEquals(countOfItems, "3");
     }
 
-    @AfterMethod
+    @AfterAll
     public void closeDriver(){
         driver.close();
     }
