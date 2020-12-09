@@ -126,6 +126,7 @@ public class CalvinKleinBagPage extends AbstractPage {
     }
 
     public boolean isEmpty(){
+        waitUntilAjaxCompleted();
         List<WebElement> items = driver.findElements(By.xpath(numberOfItemTemplate));
 
         return items.isEmpty();

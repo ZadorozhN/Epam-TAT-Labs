@@ -5,6 +5,7 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import page.CalvinKleinHomePage;
 import service.ItemCreator;
+import service.TestDataReader;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -33,7 +34,7 @@ public class CalvinKleinShippingTest extends CommonConditions{
     public void doNotShipFreeTest(){
         Item expectedItem = ItemCreator.withCredentialsFromProperty("first");
         String uri = ItemCreator.getUri("first");
-        int cost = 995;
+        int cost = Integer.parseInt(TestDataReader.getTestData("test.data.ship.cost"));
 
         int shippingCost = new CalvinKleinHomePage(driver)
                 .openPage()
