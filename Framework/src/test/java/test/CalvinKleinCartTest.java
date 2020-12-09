@@ -1,7 +1,6 @@
 package test;
 
 import model.Item;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import page.CalvinKleinHomePage;
 import service.ItemCreator;

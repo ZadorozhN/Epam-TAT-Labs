@@ -9,7 +9,7 @@ import util.TestListener;
 public class CommonConditions {
     protected WebDriver driver;
 
-    @BeforeSuite
+    @BeforeClass
     public void init(){
         driver = DriverSingleton.getInstance();
     }
@@ -19,7 +19,7 @@ public class CommonConditions {
         DriverSingleton.deleteAllCookies();
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void dispose(){
         DriverSingleton.closeDriver();
     }
