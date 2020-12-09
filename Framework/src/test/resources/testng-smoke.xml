@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="smoke" verbose="1" >
-    <test name="calvinKleinTest">
+    <test name="smoke">
         <classes>
             <class name="test.CalvinKleinCartTest"/>
         </classes>
